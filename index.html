@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel='stylesheet' href='./stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="javascripts/action.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+  <!-- Form-->
+  <div class="form">
+    <div class="form-toggle"></div>
+    <div class="form-panel one">
+      <div class="form-header">
+        <h1>IEEE VIT Recruitments</h1>
+      </div>
+      <div class="form-content">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required="required"/>
+            <p class="errMsg" id="nameErr">Name Field needs to be Filled in</p>
+          </div>
+          <div class="form-group">
+            <label for="regno">Registration Number</label>
+            <input type="text" id="regno" name="regno" required="required"/>
+            <p class="errMsg" id="regnoErr"></p>
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail Address</label>
+            <input type="email" id="email" name="email" required="required"/>
+            <p class="errMsg" id="emailErr"></p>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required="required"/>
+            <p class="errMsg" id="phoneErr"></p>
+          </div>
+          <div class="form-group" style="padding:20px;">
+
+            <label class="customcheck">Technical
+              <input type="checkbox" name="Tech">
+              <span class="checkmark"></span>
+            </label>
+            <label class="customcheck">Management
+              <input type="checkbox">
+              <span class="checkmark" name="Management"></span>
+            </label>
+            <label class="customcheck">Design
+              <input type="checkbox" name="Design">
+              <span class="checkmark"></span>
+            </label>
+            <!--<input type="email" id="email" name="email" required="required"/>-->
+          </div>
+
+          <div class="form-group">
+            <div style="height:15vh; width:40vh;">
+              <img src="images/captchaSample.bmp" class="captchaImg">
+              <i id="refresh" onClick="captchaGen();" class="fa fa-refresh" style="color:#000; font-size: 3vh; margin:0 0 0 10%;cursor: pointer; text-align:right;"></i>
+            </div>
+            <input type="tel" id="phone" name="phone" required="required" placeholder="Enter Captcha Text" style="margin-top: -4vh;"/>
+
+          </div>
+
+          <div class="form-group">
+            <button type="submit">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="form-panel two">
+
+    </div>
+  </div>
+  <div class="footer">
+    <p class="footer-text">
+      Stay Tuned for More!
+    </p>
+    <div style="text-align: center;">
+      <a onclick='window.open("https://www.facebook.com/IEEEVIT/");return false;'>
+        <i id="social-fb" class="fa fa-facebook-square fa-3x social">
+        </i>
+      </a>
+      <a onclick='window.open("https://www.linkedin.com/company/ieee-vit-vellore/");return false;'>
+        <i id="social-tw" class="fa fa-linkedin-square fa-3x social"></i>
+      </a>
+      <a onclick='window.open("https://www.instagram.com/ieeevitvellore/");return false;'>
+        <i id="social-insta" class="fa fa-instagram fa-3x social"></i>
+      </a>
+      <a onclick='window.open("https://www.ieeevit.com/");return false;'>
+        <i id="social-web" class="fa fa-globe fa-3x social"></i>
+      </a>
+    </div>
+
+  </div>
+  </body>
+</html>
