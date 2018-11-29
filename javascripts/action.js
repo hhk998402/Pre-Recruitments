@@ -1,4 +1,15 @@
 $(document).ready(function() {
+    function captchaGen(){
+        var d = new Date();
+        var n = d.getMilliseconds();
+        console.log("HERE");
+        var link = "http://prerecruitments-backend.herokuapp.com/captcha/captchagen" + "?param1=" + n.toString();
+        document.getElementById("captchaImg").src=link;
+    }
+
+    captchaGen();
+
+
     $('#nameErr').hide();
     $('#regnoErr').hide();
     $('#emailErr').hide();

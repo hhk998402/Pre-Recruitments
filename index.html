@@ -65,7 +65,7 @@
 
           <div class="form-group">
             <div style="height:15vh; width:40vh;">
-              <img src="images/captchaSample.bmp" class="captchaImg">
+              <img class="captchaImg" id="captchaImg" alt="Could not load Captcha">
               <i id="refresh" onClick="captchaGen();" class="fa fa-refresh" style="color:#000; font-size: 3vh; margin:0 0 0 10%;cursor: pointer; text-align:right;"></i>
             </div>
             <input type="tel" id="phone" name="phone" required="required" placeholder="Enter Captcha Text" style="margin-top: -4vh;"/>
@@ -104,4 +104,13 @@
 
   </div>
   </body>
+  <!--<script>-->
+      <!--function captchaGen(){-->
+          <!--var d = new Date();-->
+          <!--var n = d.getMilliseconds();-->
+          <!--console.log("HERE");-->
+          <!--var link = "" + "?param1=" + n.toString();-->
+          <!--document.getElementById("captchaImg").src=link;-->
+      <!--}-->
+  <!--</script>-->
 </html>

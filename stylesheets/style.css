@@ -1,26 +1,33 @@
-/*@media (max-width: 400px) {*/
-  /*.form{*/
-    /*width:100000px;*/
-    /*background-color: red;*/
-  /*}*/
-/*}*/
+@media (max-width: 400px) {
+  .form{
+    width:100%;
+    background-color: red;
+  }
+}
 
 
 html {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 body {
-  background: linear-gradient(45deg, rgba(66, 183, 245, 0.8) 0%, rgba(66, 245, 189, 0.4) 100%);
-  background: linear-gradient(45deg, rgba(66, 183, 245, 0.8) 0%, rgba(66, 245, 189, 0.4) 100%);
-  color: rgba(0, 0, 0, 0.6);
+  /*background-image: url("../images/bg.png");*/
+  /*background: linear-gradient(45deg, rgba(66, 183, 245, 0.8) 0%, rgba(66, 245, 189, 0.4) 100%);*/
+  /*color: rgba(0, 0, 0, 0.6);*/
+  background: url("../images/bg.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   line-height: 1.6em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*height:auto;*/
+  background-repeat: no-repeat;
+  /*height:620px;*/
+  /*height:100%;*/
 }
 
 /*.overlay, .form-panel.one:before {*/
@@ -49,12 +56,13 @@ body {
   position: relative;
   background: #FFFFFF;
   max-width: 600px;
-  height:100%;
+  height:auto;
   border-radius: 4px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   margin: 100px auto 50px;
   overflow: hidden;
+  opacity: 0.9;
 
 }
 .form-toggle {
@@ -331,9 +339,8 @@ body {
 .footer {
   position: relative;
   max-width: 600px;
-  height:100%;
   border-radius: 4px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);*/
   box-sizing: border-box;
   margin: 100px auto 50px;
   overflow: hidden;
