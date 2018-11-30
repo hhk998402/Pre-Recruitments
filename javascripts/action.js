@@ -53,6 +53,24 @@ $(document).ready(function() {
             contentType: 'application/json',
             success: function (data) {
                 console.log(data);
+                if(data.Status){
+                    if(data.Status === "Failed"){
+                        var errArr = data.Message;
+                        if(typeof errArr === "object") {
+                            for (var i = 0; i < 4; i++) {
+                                $(".errMsg:eq(" + i.toString() + ")").show();
+                                $(".errMsg:eq(" + i.toString() + ")").text(errArr[i]);
+                            }
+                        }
+                        else{
+                            console.log(errArr);
+                        }
+
+                    }
+                    else if(data.Status === "Success"){
+                            console.log("Success");
+                    }
+                }
             },
             data: data
         });
@@ -100,10 +118,12 @@ $(document).ready(function() {
         var enteredValue = $('#name').val();
         if(enteredValue.length>100){
             $('#name').css('border', '1px solid red');
+            $('#nameErr').text("Name should not exceed 100 Characters");
             $('#nameErr').show();
         }
         else if((!nameRegex.test(enteredValue))){
             $('#name').css('border', '1px solid red');
+            $('#nameErr').text("Only alphabets allowed in name");
             $('#nameErr').show();
         }
 
@@ -115,7 +135,7 @@ $(document).ready(function() {
         clearTimeout(typingTimer);
         console.log("HERE");
         if ($('#email').val()) {
-            typingTimer = setTimeout(nameCheck, doneTypingInterval);
+            typingTimer = setTimeout(emailCheck, doneTypingInterval);
         }
         else{
             $('#email').css('border', '1px solid red');
@@ -124,17 +144,95 @@ $(document).ready(function() {
         }
     });
 
-    function nameCheck(){
-        var nameRegex = /^[ A-Za-z0-9_@."'/#&,/-]*$/;
-        var enteredValue = $('#name').val();
+    function emailCheck(){
+        var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var enteredValue = $('#email').val();
         if(enteredValue.length>100){
-            $('#name').css('border', '1px solid red');
-            $('#nameErr').show();
+            $('#email').css('border', '1px solid red');
+            $('#emailErr').text("EMail should not exceed 100 Characters");
+            $('#emailErr').show();
         }
-        else if((!nameRegex.test(enteredValue))){
-            $('#name').css('border', '1px solid red');
-            $('#nameErr').show();
+        else if((!emailRegex.test(enteredValue))){
+            $('#email').css('border', '1px solid red');
+            $('#emailErr').text("Invalid EMail Entered");
+            $('#emailErr').show();
         }
 
     }
+
+    $('#regno').keyup(function(){
+        $('#regnoErr').hide();
+        $('#regno').css('border', 'none');
+        clearTimeout(typingTimer);
+        console.log("HERE");
+        if ($('#regno').val()) {
+            typingTimer = setTimeout(regnoCheck, doneTypingInterval);
+        }
+        else{
+            $('#regno').css('border', '1px solid red');
+            $('#regnoErr').text("This field is Mandatory");
+            $('#regnoErr').show();
+        }
+    });
+
+    function regnoCheck(){
+        var regnoRegex = /18[A-Za-z]{3}\d\d\d\d$/;
+        var enteredValue = $('#regno').val();
+        if(enteredValue.length>9){
+            $('#regno').css('border', '1px solid red');
+            $('#regnoErr').text("Registration Number should be of type 18XXYYYY");
+            $('#regnoErr').show();
+        }
+        else if((!regnoRegex.test(enteredValue))){
+            $('#regno').css('border', '1px solid red');
+            $('#regnoErr').text("Invalid Registration Number Entered");
+            $('#regnoErr').show();
+        }
+
+    }
+
+    $('#phone').keyup(function(){
+        $('#phoneErr').hide();
+        $('#phone').css('border', 'none');
+        clearTimeout(typingTimer);
+        console.log("HERE");
+        if ($('#phone').val()) {
+            typingTimer = setTimeout(phoneCheck, doneTypingInterval);
+        }
+        else{
+            $('#phone').css('border', '1px solid red');
+            $('#phoneErr').text("This field is Mandatory");
+            $('#phoneErr').show();
+        }
+    });
+
+    function phoneCheck(){
+        var phoneRegex = /^[0-9]{10}$/;
+        var enteredValue = $('#phone').val();
+        if(enteredValue.length>10){
+            $('#phone').css('border', '1px solid red');
+            $('#phoneErr').text("Phone Number should not exceed 10 Characters");
+            $('#phoneErr').show();
+        }
+        else if((!phoneRegex.test(enteredValue))){
+            $('#phone').css('border', '1px solid red');
+            $('#phoneErr').text("Invalid Phone Number Entered");
+            $('#phoneErr').show();
+        }
+
+    }
+
+    $('#captchaVal').keyup(function(){
+        $('#captchaErr').hide();
+        $('#captchaVal').css('border', 'none');
+        clearTimeout(typingTimer);
+        console.log("HERE");
+        if (!$('#captchaVal').val()) {
+            $('#captchaVal').css('border', '1px solid red');
+            $('#captchaErr').text("This field is Mandatory");
+            $('#captchaErr').show();
+        }
+    });
+
+
 });
