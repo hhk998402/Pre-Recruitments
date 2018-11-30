@@ -16,6 +16,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   </head>
   <body>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!--<h4 class="modal-title"></h4>-->
+        </div>
+        <div class="modal-body">
+          <p id="modal-alert"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Form-->
   <div class="form">
@@ -61,6 +83,7 @@
               <input type="checkbox" name="Design" id="Design">
               <span class="checkmark"></span>
             </label>
+            <p class="errMsg" id="domainErr"></p>
             <!--<input type="email" id="email" name="email" required="required"/>-->
           </div>
 

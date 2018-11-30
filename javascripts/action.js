@@ -58,19 +58,25 @@ $(document).ready(function() {
                         var errArr = data.Message;
                         var errMsgs = ["Invalid Name","Invalid Registration Number","Invalid EMail ID","Invalid Phone Number","Please Select a Field","Invalid Captcha Value"];
                         if(typeof errArr === "object") {
-                            for (var i = 0; i < 4; i++) {
-                                $(".errMsg:eq(" + i.toString() + ")").show();
-                                if(errArr[i].toString() === "0")
+                            for (var i = 0; i < 5; i++) {
+                                if(errArr[i].toString() === "0"){
+                                    $(".errMsg:eq(" + i.toString() + ")").show();
                                     $(".errMsg:eq(" + i.toString() + ")").text(errMsgs[i]);
+                                }
                             }
                         }
                         else{
-                            console.log(errArr);
+                            $(".errMsg:eq(" + "5" + ")").show();
+                            $(".errMsg:eq(" + "5" + ")").text("Invalid Captcha Value");
                         }
+                        $('#myModal').modal('show');
+                        $('#modal-alert').text("Errors in Form Entry");
                         captchaGen();
                     }
                     else if(data.Status === "Success"){
-                            console.log("Success");
+                        $('#myModal').modal('show');
+                        $('#modal-alert').text("You have Successfully Registered! Stay tuned to our Social Media for more updates");
+                        console.log("Success");
                     }
                 }
             },
@@ -96,6 +102,7 @@ $(document).ready(function() {
     $('#regnoErr').hide();
     $('#emailErr').hide();
     $('#phoneErr').hide();
+    $('#domainErr').hide();
 
     var typingTimer;                //timer identifier
     var doneTypingInterval = 500;  //time in ms (5 seconds)
