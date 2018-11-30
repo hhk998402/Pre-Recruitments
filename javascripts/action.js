@@ -72,6 +72,7 @@ $(document).ready(function() {
                                     $(".errMsg:eq(" + i.toString() + ")").text(errMsgs[i]);
                                 }
                             }
+                            $('#modal-alert').text("Errors in form entry");
                         }
                         else{
                             $(".errMsg:eq(" + "5" + ")").show();
