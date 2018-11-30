@@ -15,9 +15,24 @@ $(document).ready(function() {
         var phone = $("#phone").val();
         var regno = $("#regno").val();
         var captchaValue = $("#captchaVal").val();
-        var Tech = $("#Tech").val();
-        var Management = $("#Management").val();
-        var Design = $("#Design").val();
+        var Tech = false;
+        var Management = false;
+        var Design = false;
+
+        if($("#Tech"). prop("checked") === true){
+            Tech = true;
+        }
+
+        if($("#Management"). prop("checked") === true){
+            Management = true;
+        }
+
+        if($("#Design"). prop("checked") === true){
+            Design = true;
+        }
+        // var Tech = $("#Tech").val();
+        // var Management = $("#Management").val();
+        // var Design = $("#Design").val();
         var data = JSON.stringify({
             name: name,
             email : email,
@@ -103,9 +118,9 @@ $(document).ready(function() {
             typingTimer = setTimeout(nameCheck, doneTypingInterval);
         }
         else{
-            $('#name').css('border', '1px solid red');
-            $('#nameErr').text("This field is Mandatory");
-            $('#nameErr').show();
+            $('#email').css('border', '1px solid red');
+            $('#emailErr').text("This field is Mandatory");
+            $('#emailErr').show();
         }
     });
 
