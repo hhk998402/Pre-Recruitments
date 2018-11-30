@@ -53,8 +53,16 @@ $(document).ready(function() {
             contentType: 'application/json',
             success: function (data) {
                 console.log(data);
+                $('#nameErr').hide();
+                $('#regnoErr').hide();
+                $('#emailErr').hide();
+                $('#phoneErr').hide();
+                $('#domainErr').hide();
+                $('#captchaErr').hide();
+
                 if(data.Status){
                     if(data.Status === "Failed"){
+
                         var errArr = data.Message;
                         var errMsgs = ["Invalid Name","Invalid Registration Number","Invalid EMail ID","Invalid Phone Number","Please Select a Field","Invalid Captcha Value"];
                         if(typeof errArr === "object") {
@@ -67,13 +75,21 @@ $(document).ready(function() {
                         }
                         else{
                             $(".errMsg:eq(" + "5" + ")").show();
-                            $(".errMsg:eq(" + "5" + ")").text("Invalid Captcha Value");
+                            $(".errMsg:eq(" + "5" + ")").text(errArr);
+                            $('#modal-alert').text(errArr);
                         }
                         $('#myModal').modal('show');
-                        $('#modal-alert').text("Errors in Form Entry");
                         captchaGen();
                     }
                     else if(data.Status === "Success"){
+                        $('#nameErr').hide();
+                        $('#regnoErr').hide();
+                        $('#emailErr').hide();
+                        $('#phoneErr').hide();
+                        $('#domainErr').hide();
+                        $('#captchaErr').hide();
+
+
                         $('#myModal').modal('show');
                         $('#modal-alert').text("You have Successfully Registered! Stay tuned to our Social Media for more updates");
                         document.getElementById("rec-form").reset();
@@ -105,6 +121,8 @@ $(document).ready(function() {
     $('#emailErr').hide();
     $('#phoneErr').hide();
     $('#domainErr').hide();
+    $('#captchaErr').hide();
+
 
     var typingTimer;                //timer identifier
     var doneTypingInterval = 500;  //time in ms (5 seconds)
