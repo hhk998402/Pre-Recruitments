@@ -32,8 +32,8 @@ body {
 }
 
 #title-logo{
-  width:30%;
-  height:20%;
+  width:30vh;
+  height:20vh;
   position: translate(0 -50% 0 -50%);
 }
 
@@ -69,7 +69,7 @@ body {
   box-sizing: border-box;
   margin: 100px auto 50px;
   overflow: hidden;
-  opacity: 0.9;
+  /*opacity: 0.9;*/
 
 }
 .form-toggle {
