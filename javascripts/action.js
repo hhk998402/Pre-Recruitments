@@ -9,6 +9,7 @@ $(document).ready(function() {
 
     $("#regBtn").click(function(e) {
         e.preventDefault();
+        console.log($('#rec-form').serialize());
         var name = $("#name").val();
         var email = $("#email").val();
         var phone = $("#phone").val();
@@ -29,6 +30,9 @@ $(document).ready(function() {
         });
         $.ajax({
             url: 'https://prerecruitments-backend.herokuapp.com/user/create',
+            xhrFields: {
+                withCredentials: true
+            },
             type: 'post',
             dataType: 'json',
             contentType: 'application/json',
@@ -61,14 +65,41 @@ $(document).ready(function() {
     var typingTimer;                //timer identifier
     var doneTypingInterval = 500;  //time in ms (5 seconds)
 
-    var isMLChecked = $('#session-radio-3').prop('checked');
-
     $('#name').keyup(function(){
         $('#nameErr').hide();
         $('#name').css('border', 'none');
         clearTimeout(typingTimer);
         console.log("HERE");
         if ($('#name').val()) {
+            typingTimer = setTimeout(nameCheck, doneTypingInterval);
+        }
+        else{
+            $('#name').css('border', '1px solid red');
+            $('#nameErr').text("This field is Mandatory");
+            $('#nameErr').show();
+        }
+    });
+
+    function nameCheck(){
+        var nameRegex = /^[ A-Za-z0-9_@."'/#&,/-]*$/;
+        var enteredValue = $('#name').val();
+        if(enteredValue.length>100){
+            $('#name').css('border', '1px solid red');
+            $('#nameErr').show();
+        }
+        else if((!nameRegex.test(enteredValue))){
+            $('#name').css('border', '1px solid red');
+            $('#nameErr').show();
+        }
+
+    }
+
+    $('#email').keyup(function(){
+        $('#emailErr').hide();
+        $('#email').css('border', 'none');
+        clearTimeout(typingTimer);
+        console.log("HERE");
+        if ($('#email').val()) {
             typingTimer = setTimeout(nameCheck, doneTypingInterval);
         }
         else{

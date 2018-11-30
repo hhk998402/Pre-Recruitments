@@ -342,6 +342,10 @@ body {
   height:50%;
 }
 
+.errMsg{
+  color:red;
+}
+
 /*Footer*/
 
 .footer {
