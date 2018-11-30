@@ -76,6 +76,8 @@ $(document).ready(function() {
                     else if(data.Status === "Success"){
                         $('#myModal').modal('show');
                         $('#modal-alert').text("You have Successfully Registered! Stay tuned to our Social Media for more updates");
+                        document.getElementById("rec-form").reset();
+                        captchaGen();
                         console.log("Success");
                     }
                 }
