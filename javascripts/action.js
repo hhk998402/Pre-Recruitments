@@ -56,16 +56,18 @@ $(document).ready(function() {
                 if(data.Status){
                     if(data.Status === "Failed"){
                         var errArr = data.Message;
+                        var errMsgs = ["Invalid Name","Invalid Registration Number","Invalid EMail ID","Invalid Phone Number","Please Select a Field","Invalid Captcha Value"];
                         if(typeof errArr === "object") {
                             for (var i = 0; i < 4; i++) {
                                 $(".errMsg:eq(" + i.toString() + ")").show();
-                                $(".errMsg:eq(" + i.toString() + ")").text(errArr[i]);
+                                if(errArr[i].toString() === "0")
+                                    $(".errMsg:eq(" + i.toString() + ")").text(errMsgs[i]);
                             }
                         }
                         else{
                             console.log(errArr);
                         }
-
+                        captchaGen();
                     }
                     else if(data.Status === "Success"){
                             console.log("Success");
